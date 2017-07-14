@@ -30,7 +30,7 @@ def timed_job():
     data = json.loads(resp.text)
 
     # Because the stupid fucking response has availability in an HTML string -_-'
-    availability = data['availability'].encode('utf')
+    availability = data['availability'].encode('ascii', 'ignore')
     dates_times = re.findall('data-datetime=".*?"', availability)
     dates = []
     for d in dates_times:
@@ -71,6 +71,7 @@ message = "Starting Availability Check for OpenTable Restaurant {} for {} to {}"
     cfg['DATE_SEARCH_START'],
     cfg['DATE_SEARCH_END']
 )
+
 content = Content("text/html", message)
 mail = Mail(FROM_EMAIL, SUBJECT, TO_EMAIL, content)
 response = sg.client.mail.send.post(request_body=mail.get())
