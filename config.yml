@@ -1,4 +1,4 @@
-EMAIL: '<email ato send to>'
+EMAIL: '<email to send notifications to>'
 SENDGRID_APIKEY: '<send grid api key>'
 OPENTABLE_ID: '<open table restaurant id>'
 DATETIME: '<date to query reservation search around>'
